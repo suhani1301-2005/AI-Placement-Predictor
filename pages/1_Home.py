@@ -2,6 +2,8 @@ import streamlit as st
 from utils.auth import check_login
 from utils.sidebar import show_sidebar
 
+check_login()
+show_sidebar()
 st.set_page_config(
     page_title="AI Placement Mentor",
     page_icon="🎓",

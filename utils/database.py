@@ -1,15 +1,16 @@
+
 import mysql.connector
 import pandas as pd
 import bcrypt
-import os
+import streamlit as st
 
 def connect_db():
     return mysql.connector.connect(
-        host="gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com",
-        port=4000,
-        user="2KXNhL5DCtNH3e5.root",
-        password=os.getenv("DB_PASSWORD"),   
-        database="placement_db"
+        host=st.secrets["DB_HOST"],
+        port=int(st.secrets["DB_PORT"]),
+        user=st.secrets["DB_USER"],
+        password=st.secrets["DB_PASSWORD"],
+        database=st.secrets["DB_NAME"]
     )
 def fetch_predictions():
 

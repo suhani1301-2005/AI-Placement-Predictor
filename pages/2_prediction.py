@@ -3,7 +3,11 @@ import streamlit as st
 from utils.preprocessing import preprocess
 from utils.model_utils import predict
 from utils.database import save_prediction
+from utils.auth import check_login
+from utils.sidebar import show_sidebar
 
+check_login()
+show_sidebar()
 # ---------------------------------------
 # PAGE CONFIG
 # ---------------------------------------

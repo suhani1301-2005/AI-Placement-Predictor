@@ -4,6 +4,11 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.express as px
 from datetime import datetime
+from utils.auth import check_login
+from utils.sidebar import show_sidebar
+
+check_login()
+show_sidebar()
 
 st.markdown("""
 <style>

@@ -1,5 +1,11 @@
 import streamlit as st
 from utils.mentor import get_response
+from utils.auth import check_login
+from utils.sidebar import show_sidebar
+
+
+check_login()
+show_sidebar()
 
 st.title("🤖 AI Career Mentor")
 st.caption("Ask me anything about placements, DSA, SQL, resume or interviews.")

@@ -1,4 +1,6 @@
 import streamlit as st
+from utils.auth import check_login
+from utils.sidebar import show_sidebar
 
 st.set_page_config(
     page_title="AI Placement Mentor",
@@ -6,9 +8,12 @@ st.set_page_config(
     layout="wide"
 )
 
+
+
 # ---------------- HEADER ----------------
 
 st.title("🎓 AI Placement Mentor")
+st.success(f"👋 Welcome back, {st.session_state.user_name}!")
 
 st.subheader("AI Powered Placement Prediction & Career Guidance")
 

@@ -109,7 +109,7 @@ with col1:
 
 with col2:
     if st.button("Register", use_container_width=True):
-        st.switch_page("register.py")
+        st.switch_page("pages/6_Register.py")
 
 st.write("")
 st.markdown("---")

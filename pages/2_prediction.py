@@ -2,6 +2,7 @@ import streamlit as st
 
 from utils.preprocessing import preprocess
 from utils.model_utils import predict
+from utils.database import save_prediction
 
 # ---------------------------------------
 # PAGE CONFIG
@@ -172,6 +173,28 @@ if predict_button:
         )
 
         prediction, probability = predict(input_df)
+
+        # Convert prediction to text
+        if prediction == 1:
+            prediction_result = "Placed"
+        else:
+            prediction_result = "Not Placed"
+
+        # Probability of placement
+        confidence = probability[1] * 100
+
+        # Save into MySQL
+        save_prediction(
+            gender,
+            ssc,
+            hsc,
+            degree,
+            workex,
+            etest,
+            mba,
+            prediction_result,
+            confidence
+        )
 
         st.success("Analysis Complete!")
         st.divider()
